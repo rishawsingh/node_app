@@ -40,7 +40,7 @@ pipeline
       {
         script 
         {
-          withCredentials([usernamePassword(credentialsId: 'oru-git-credentials-id', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) 
+          withCredentials([usernamePassword(credentialsId: 'my-git-credentials-id', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) 
           {
             sh "git config --global credential.username ${env.GIT_USERNAME}"
             sh "git config --global credential.helper '!echo password=${env.GIT_PASSWORD}; echo'"
