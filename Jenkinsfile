@@ -114,7 +114,7 @@ pipeline
             env.SSH_KEY = readFile(env.SSH_KEY)
 
             // SSH into EC2 instance and run the new container
-            sh "ssh -o StrictHostKeyChecking=no -i ${env.SSH_KEY} ${env.SSH_USER}@${params.IP_ADDRESS} 'docker run -d -p 8000:8000 --name node_app node_app:${env.DOCKER_IMAGE_TAG}'"
+            sh "ssh -o StrictHostKeyChecking=no -i ${env.SSH_KEY} ${env.SSH_USER}@${params.IP_ADDRESS} 'docker run -d -p 3000:3000 --name node_app node_app:${env.DOCKER_IMAGE_TAG}'"
           }
         }
       }
