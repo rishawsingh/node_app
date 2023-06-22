@@ -21,7 +21,7 @@ pipeline
             }
   
             // Set the SSH key environment variable
-            withCredentials([sshUserPrivateKey(credentialsId: 'vm-ssh-credentials', keyFileVariable: 'SSH_KEY', passphraseVariable: '', usernameVariable: 'SSH_USER')]) 
+            withCredentials([sshUserPrivateKey(credentialsId: 'my-ssh-credentials', keyFileVariable: 'SSH_KEY', passphraseVariable: '', usernameVariable: 'SSH_USER')]) 
             {
               env.SSH_KEY = readFile(env.SSH_KEY)
   
@@ -38,10 +38,10 @@ pipeline
       steps {
         script 
         {
-            withCredentials([sshUserPrivateKey(credentialsId: 'vm-ssh-credentials', keyFileVariable: 'SSH_KEY', passphraseVariable: '', usernameVariable: 'SSH_USER')]) 
+            withCredentials([sshUserPrivateKey(credentialsId: 'my-ssh-credentials', keyFileVariable: 'SSH_KEY', passphraseVariable: '', usernameVariable: 'SSH_USER')]) 
             {
               env.SSH_KEY = readFile(env.SSH_KEY)
-                withCredentials([usernamePassword(credentialsId: 'git-credentials-id', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) 
+                withCredentials([usernamePassword(credentialsId: 'my-git-credentials-id', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) 
                 {
                     sh "git config --global credential.username ${env.GIT_USERNAME}"
                     sh "git config --global credential.helper '!echo password=${env.GIT_PASSWORD}; echo'"
@@ -68,7 +68,7 @@ pipeline
         script 
         {
           // SSH into nodeapp Docker VM instance
-            withCredentials([sshUserPrivateKey(credentialsId: 'vm-ssh-credentials', keyFileVariable: 'SSH_KEY', passphraseVariable: '', usernameVariable: 'SSH_USER')]) 
+            withCredentials([sshUserPrivateKey(credentialsId: 'my-ssh-credentials', keyFileVariable: 'SSH_KEY', passphraseVariable: '', usernameVariable: 'SSH_USER')]) 
             {
                 env.SSH_KEY = readFile(env.SSH_KEY)
 
@@ -94,7 +94,7 @@ pipeline
         {
           try 
           {
-            withCredentials([sshUserPrivateKey(credentialsId: 'vm-ssh-credentials', keyFileVariable: 'SSH_KEY', passphraseVariable: '', usernameVariable: 'SSH_USER')]) 
+            withCredentials([sshUserPrivateKey(credentialsId: 'my-ssh-credentials', keyFileVariable: 'SSH_KEY', passphraseVariable: '', usernameVariable: 'SSH_USER')]) 
             {
               env.SSH_KEY = readFile(env.SSH_KEY)
 
@@ -115,7 +115,7 @@ pipeline
       {
         script 
         {
-          withCredentials([sshUserPrivateKey(credentialsId: 'vm-ssh-credentials', keyFileVariable: 'SSH_KEY', passphraseVariable: '', usernameVariable: 'SSH_USER')]) 
+          withCredentials([sshUserPrivateKey(credentialsId: 'my-ssh-credentials', keyFileVariable: 'SSH_KEY', passphraseVariable: '', usernameVariable: 'SSH_USER')]) 
           {
             env.SSH_KEY = readFile(env.SSH_KEY)
 
