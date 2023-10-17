@@ -1,9 +1,16 @@
 version: '3'
 
 services:
-  app:
-    image: node-app
+  node_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        dockerImageTag: ${DOCKER_IMAGE_TAG}
+    image: node_app:${DOCKER_IMAGE_TAG}
     ports:
-      - "3000:3000"
+      - "${DOCKER_PORT}:${DOCKER_PORT}"
     environment:
-      NODE_ENV: production
+      - DOCKER_IMAGE_TAG=${DOCKER_IMAGE_TAG}
+    container_name: node_app
+    restart: alway
