@@ -12,7 +12,7 @@ pipeline
   agent any
   parameters
   {
-    string(name: 'IP_ADDRESS', defaultValue: 'http://20.119.88.113/', description: 'Enter IP address of target EC2 instance')
+    string(name: 'IP_ADDRESS', defaultValue: '20.119.88.113', description: 'Enter IP address of target EC2 instance')
   }
 
   environment {
