@@ -14,3 +14,4 @@ services:
       - DOCKER_IMAGE_TAG=${DOCKER_IMAGE_TAG}
     container_name: node_app
     restart: always
+
