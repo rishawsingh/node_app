@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Welcome!! You have successfully deployed your Application using Jenkins!! Congrats you have done it!!
+          Welcome!! You have successfully deployed your Application using Jenkins!!
         </p>
         <a
           className="App-link"
